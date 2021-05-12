@@ -10,9 +10,14 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
+  console.log('Alguém conectou.')
   socket.on('chat message', (obj) => {
+    obj.time = new Date().getTime()
     io.emit('chat message', obj);
   });
+  socket.on('delete message', (id) => {
+    io.emit('delete message', id)
+  })
 });
 
 server.listen(7777, () => {
