@@ -9,8 +9,11 @@ const io = new Server(server, { cors: { origin: "*" } });
 app.get('/', (req, res) => {
   res.send('<h1>Você acessou o Servidor pelo navegador.</h1>');
 });
+
+app.use('/public', express.static(__dirname + '/public'))
+
 app.get('/client', (req, res) => {
-  res.sendFile(path.join(__dirname, './cliente-interno', 'index.html'));
+  res.sendFile(__dirname + '/index.html');
 })
 
 io.on('connection', (socket) => {
