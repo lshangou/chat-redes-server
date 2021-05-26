@@ -10,9 +10,11 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  console.log('Alguém conectou.')
+  console.log('Alguém conectou:')
+  console.log(socket.handshake.headers)
   socket.on('chat message', (obj) => {
     obj.time = new Date().getTime()
+    console.log(obj);
     io.emit('chat message', obj);
   });
   socket.on('delete message', (id) => {
