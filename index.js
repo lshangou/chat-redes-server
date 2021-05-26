@@ -10,11 +10,11 @@ app.get('/', (req, res) => {
   res.send('<h1>Você acessou o Servidor pelo navegador.</h1>');
 });
 
-app.use('/public', express.static(__dirname + '/public'))
+app.use(express.static('public'))
 
-app.get('/client', (req, res) => {
-  res.sendFile('/public/index.html');
-})
+// app.get('/client', (req, res) => {
+//   res.sendFile('/index.html');
+// })
 
 io.on('connection', (socket) => {
   console.log('Alguém conectou:')
