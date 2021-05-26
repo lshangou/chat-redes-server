@@ -5,8 +5,11 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server, { cors: { origin: "*" } });
 
+app.use(express.static('public'))
+
 app.get('/', (req, res) => {
-  res.send('<h1>Você acessou o Servidor pelo navegador.</h1>');
+  // res.send('<h1>Você acessou o Servidor pelo navegador.</h1>');
+  res.sendFile('/cliente-interno/index.html');
 });
 
 io.on('connection', (socket) => {
