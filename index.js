@@ -6,7 +6,7 @@ const { Server } = require("socket.io");
 const io = new Server(server, { cors: { origin: "*" } });
 
 app.get('/', (req, res) => {
-  res.send('<h1>Você acessou o Servidor pelo navegador. Deseja acessar o app? (Apenas local) <a href="http://192.168.100.10:8080">Clique aqui.</a></h1>');
+  res.send('<h1>Você acessou o Servidor pelo navegador.</h1>');
 });
 
 io.on('connection', (socket) => {
