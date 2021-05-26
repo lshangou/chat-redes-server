@@ -22,6 +22,6 @@ io.on('connection', (socket) => {
   })
 });
 
-server.listen(7777, () => {
-  console.log('Servidor aberto em *:7777');
+server.listen(80, () => {
+  console.log('Servidor aberto em *:80');
 });
