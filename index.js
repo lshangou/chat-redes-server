@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
   res.send('<h1>Você acessou o Servidor pelo navegador.</h1>');
 });
 app.get('/client', (req, res) => {
-  res.sendFile('./cliente-interno/index.html');
+  res.sendFile(path.join(__dirname, './cliente-interno', 'index.html'));
 })
 
 io.on('connection', (socket) => {
