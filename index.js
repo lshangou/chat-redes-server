@@ -21,7 +21,7 @@ io.on('connection', (socket) => {
   console.log(socket.handshake.headers)
   socket.on('chat message', (obj) => {
     obj.time = new Date().getTime()
-    console.log(obj);
+    console.log('[new message] ' + obj.name + ' - ' + obj.msg);
     io.emit('chat message', obj);
   });
   socket.on('delete message', (id) => {
